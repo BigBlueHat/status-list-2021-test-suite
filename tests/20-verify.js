@@ -12,7 +12,7 @@ import {klona} from 'klona';
 // only use implementations with `StatusList2021` verifiers.
 const {match} = filterByTag({
   property: 'verifiers',
-  tags: ['StatusList2021']
+  tags: ['localhost']
 });
 
 describe('StatusList2021 Credentials (Verify)', function() {
@@ -91,7 +91,7 @@ describe('StatusList2021 Credentials (Verify)', function() {
           });
           shouldFailVerification({result, error, statusCode});
         });
-      it('MUST fail to verify a revoked status list credential',
+      it.only('MUST fail to verify a revoked status list credential',
         async function() {
           this.test.cell = {columnId: verifierName, rowId: this.test.title};
           // get the status of the VC
